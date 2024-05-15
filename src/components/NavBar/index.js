@@ -30,9 +30,17 @@ function NavItem({ path, icon }) {
   );
 }
 
-function NavBar() {
+// eslint-disable-next-line react/prop-types
+function NavBar({ width }) {
   return (
-    <Drawer variant="permanent" open>
+    <Drawer
+      variant="permanent"
+      open
+      sx={{
+        display: { xs: 'none', sm: 'block' },
+        '& .MuiDrawer-paper': { boxSizing: 'border-box', width },
+      }}
+    >
       <List>
         {
           NavConfig.map(({ path, icon }) => (

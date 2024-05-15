@@ -1,10 +1,10 @@
 import {
   BrowserRouter, Navigate, Route, Routes,
 } from 'react-router-dom';
-import NavBar from '../components/NavBar';
 import HomePage from '../pages/HomePage';
 import TagsPage from '../pages/TagsPage';
 import ResultPage from '../pages/ResultPage';
+import NavLayout from '../pages/NavLayout';
 
 function RootRoute() {
   return (
