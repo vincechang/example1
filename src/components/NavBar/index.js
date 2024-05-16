@@ -3,6 +3,7 @@ import {
 } from '@mui/material';
 import { Link, useMatch } from 'react-router-dom';
 import { HomeIcon, TagsIcon } from 'components/Icons';
+import { COLOR } from 'theme/variables.ts';
 
 const NavConfig = [
   { path: '/home', icon: <HomeIcon /> },
@@ -31,7 +32,11 @@ function NavBar({ width }) {
       open
       sx={{
         display: { xs: 'none', sm: 'block' },
-        '& .MuiDrawer-paper': { boxSizing: 'border-box', width },
+        '& .MuiDrawer-paper': {
+          borderRight: `1px solid ${COLOR.BLACK_00_33}`,
+          boxSizing: 'border-box',
+          width,
+        },
       }}
     >
       <List>
