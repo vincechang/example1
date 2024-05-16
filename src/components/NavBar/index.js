@@ -2,14 +2,7 @@ import {
   Drawer, Link, List, ListItem, ListItemButton, ListItemIcon,
 } from '@mui/material';
 import { useMatch } from 'react-router-dom';
-
-function HomeIcon() {
-  return <div>Home</div>;
-}
-
-function TagsIcon() {
-  return <div>Tags</div>;
-}
+import { HomeIcon, TagsIcon } from 'components/Icons';
 
 const NavConfig = [
   { path: '/home', icon: <HomeIcon /> },
