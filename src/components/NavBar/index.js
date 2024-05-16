@@ -1,7 +1,7 @@
 import {
-  Drawer, Link, List, ListItem, ListItemButton, ListItemIcon,
+  Drawer, List, ListItem, ListItemButton, ListItemIcon,
 } from '@mui/material';
-import { useMatch } from 'react-router-dom';
+import { Link, useMatch } from 'react-router-dom';
 import { HomeIcon, TagsIcon } from 'components/Icons';
 
 const NavConfig = [
