@@ -5,12 +5,14 @@ import '@fontsource/ubuntu/700.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { CssBaseline } from '@mui/material';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <CssBaseline />
     <App />
   </React.StrictMode>,
 );
