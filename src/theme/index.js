@@ -92,6 +92,31 @@ const theme = createTheme({
         },
       },
     },
+    MuiSlider: {
+      styleOverrides: {
+        root: {
+          minWidth: 285,
+          '& .MuiSlider-thumb': {
+            width: 26,
+            height: 26,
+            color: COLOR.BLACK_1B,
+            border: `6px solid ${COLOR.ORANGE_LIGHT}`,
+          },
+          '& .MuiSlider-track': {
+            height: 8,
+            border: 'none',
+            background: 'linear-gradient(270deg, #FFD25F 0.13%, #FF5C01 100%)',
+          },
+          '& .MuiSlider-rail': {
+            opacity: 0.3,
+            backgroundColor: COLOR.WHITE,
+          },
+          '& .MuiSlider-mark': {
+            display: 'none',
+          },
+        },
+      },
+    },
     MuiToolbar: {
       styleOverrides: {
         root: {
