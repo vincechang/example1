@@ -1,5 +1,7 @@
 import {
-  useLayoutEffect, useMemo, useRef, useState,
+  forwardRef,
+  useImperativeHandle,
+  useLayoutEffect, useMemo, useRef,
 } from 'react';
 import { Slider as MuiSlider } from '@mui/material';
 import { useDebounceCallback, useResizeObserver } from 'usehooks-ts';
@@ -42,10 +44,11 @@ function rescaleValue(oldValue, oldWidth, newWidth) {
   return mark > 4 ? newWidth : newStep * mark;
 }
 
-function Slider() {
-  const [value, setValue] = useState(0);
-  const [width, setWidth] = useState(0);
-  const ref = useRef(null);
+function Slider({
+// eslint-disable-next-line react/prop-types
+  value, width, setValue, setWidth,
+}, ref) {
+  const resizeRef = useRef(null);
 
   useLayoutEffect(() => {
     const step = getStep(width);
@@ -59,14 +62,12 @@ function Slider() {
   }, 200);
 
   useResizeObserver({
-    ref,
+    ref: resizeRef,
     onResize,
   });
 
   const handleChange = (event, newValue) => {
-    if (typeof newValue === 'number') {
-      setValue(newValue);
-    }
+    setValue(newValue);
   };
 
   const marks = useMemo(() => {
@@ -80,11 +81,19 @@ function Slider() {
     return newMarks;
   }, [width]);
 
+  useImperativeHandle(ref, () => ({
+    getNum: (v, w) => {
+      const step = getStep(w);
+      const mark = (v / step) > 4 ? 5 : (v / step);
+      const map = [3, 6, 9, 12, 15, 50];
+      return map[mark];
+    },
+  }), []);
+
   return (
     <MuiSlider
-      ref={ref}
+      ref={resizeRef}
       value={value}
-      defaultValue={15}
       valueLabelDisplay="off"
       min={0}
       max={width}
@@ -95,4 +104,4 @@ function Slider() {
   );
 }
 
-export default Slider;
+export default forwardRef(Slider);
