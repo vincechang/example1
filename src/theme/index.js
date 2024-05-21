@@ -2,6 +2,15 @@ import { createTheme } from '@mui/material';
 import { COLOR } from './variables.ts';
 
 const theme = createTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1440,
+    },
+  },
   palette: {
     mode: 'dark',
     background: {
