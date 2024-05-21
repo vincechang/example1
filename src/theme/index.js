@@ -28,7 +28,7 @@ const theme = createTheme({
             color: COLOR.BLACK_12,
             backgroundColor: COLOR.WHITE,
             border: `1px solid ${COLOR.WHITE}`,
-          textTransform: 'uppercase',
+            textTransform: 'uppercase',
             fontSize: 12,
             fontWeight: 700,
             lineHeight: 1,
@@ -75,12 +75,29 @@ const theme = createTheme({
         }),
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          fontSize: 14,
+          lineHeight: 21,
+          height: 60,
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderWidth: 3,
+          },
+          '&.Mui-focused': {
+            '& .MuiOutlinedInput-notchedOutline': {
+              border: `3px solid ${COLOR.ORANGE}`,
+            },
+          },
+        },
+      },
+    },
     MuiToolbar: {
       styleOverrides: {
         root: {
           height: 70,
         },
-    },
+      },
     },
   },
 });
