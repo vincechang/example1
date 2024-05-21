@@ -21,7 +21,9 @@ function NavLayout() {
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
+          height: '100vh',
           display: 'flex',
+          padding: { xs: '0px 20px', sm: '0px 130px' },
         }}
       >
         <Outlet />

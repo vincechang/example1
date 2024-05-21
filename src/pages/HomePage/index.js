@@ -6,7 +6,7 @@ import { COLOR } from 'theme/variables.ts';
 
 function HomePage() {
   return (
-    <Box display="flex">
+    <Box display="flex" sx={{ flexGrow: 1 }}>
       <AppBar
         sx={{
           backgroundColor: COLOR.BLACK_18,
@@ -15,7 +15,7 @@ function HomePage() {
       >
         <Toolbar />
       </AppBar>
-      <Box component="main">
+      <Box component="main" sx={{ flexGrow: 1 }}>
         <Toolbar />
       </Box>
       <Box
