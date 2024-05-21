@@ -75,6 +75,13 @@ const theme = createTheme({
         }),
       },
     },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          margin: '30px 0px',
+        },
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
@@ -121,6 +128,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           height: 70,
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          lineHeight: 1.5,
         },
       },
     },

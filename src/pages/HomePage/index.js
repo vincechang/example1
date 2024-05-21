@@ -1,5 +1,5 @@
 import {
-  AppBar, Box, Toolbar, Typography,
+  AppBar, Box, Button, Divider, TextField, Toolbar, Typography,
 } from '@mui/material';
 import NavBottom from 'components/NavBottom';
 import Slider from 'components/Slider';
@@ -21,8 +21,15 @@ function HomePage() {
         <Toolbar />
       </AppBar>
       <Box component="main" sx={{ flexGrow: 1 }}>
-        <Toolbar />
-        <Typography>{sliderRef.current?.getNum(value, width)}</Typography>
+        <Toolbar sx={{ display: { sm: 'none' } }} />
+        <Typography variant="h5" sx={{ margin: { xs: '0 0 16px', sm: '54px 0 20px' } }}>Search</Typography>
+        <TextField placeholder="Keyword" variant="outlined" fullWidth />
+        <Divider sx={{ display: { xs: 'none', sm: 'block' } }} />
+        <Typography variant="h5" sx={{ margin: { xs: '28px 0 16px', sm: '0 0 20px' } }}># Of Results Per Page</Typography>
+        <Typography>
+          <Typography variant="h3" sx={{ fontWeight: 700, marginRight: '10px' }} component="span">{sliderRef.current?.getNum(value, width)}</Typography>
+          results
+        </Typography>
         <Slider
           value={value}
           setValue={setValue}
@@ -30,6 +37,15 @@ function HomePage() {
           setWidth={setWidth}
           ref={sliderRef}
         />
+        <Divider sx={{ marginTop: { xs: '218px', sm: '30px' } }} />
+        <Button
+          sx={{
+            width: { xs: '100%', sm: 343 },
+            marginTop: { xs: '80px', sm: '335px' },
+          }}
+        >
+          search
+        </Button>
       </Box>
       <Box
         sx={{
