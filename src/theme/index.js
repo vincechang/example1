@@ -91,6 +91,20 @@ const theme = createTheme({
         },
       },
     },
+    MuiListItemButton: {
+      styleOverrides: {
+        root: {
+          justifyContent: 'center',
+        },
+      },
+    },
+    MuiListItemIcon: {
+      styleOverrides: {
+        root: {
+          justifyContent: 'center',
+        },
+      },
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
