@@ -113,12 +113,18 @@ const theme = createTheme({
           height: 60,
           '& .MuiOutlinedInput-notchedOutline': {
             borderWidth: 3,
+            borderRadius: 6,
           },
           '&.Mui-focused': {
             '& .MuiOutlinedInput-notchedOutline': {
               border: `3px solid ${COLOR.ORANGE}`,
+              borderRadius: 6,
             },
           },
+        },
+        input: {
+          paddingLeft: 19,
+          paddingRight: 19,
         },
       },
     },
