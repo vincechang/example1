@@ -32,7 +32,15 @@ function HomePage() {
         <Divider sx={{ display: { xs: 'none', sm: 'block' } }} />
         <Typography variant="h5" sx={{ m: { xs: '28px 0 16px', sm: '0 0 20px' } }}># Of Results Per Page</Typography>
         <Typography>
-          <Typography variant="h3" sx={{ fontWeight: 700, mr: '10px' }} component="span">{sliderRef.current?.getNum(value, width)}</Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: 700, letterSpacing: 0.15, lineHeight: 1, mr: '10px',
+            }}
+            component="span"
+          >
+            {sliderRef.current?.getNum(value, width)}
+          </Typography>
           results
         </Typography>
         <Slider
@@ -42,11 +50,11 @@ function HomePage() {
           setWidth={setWidth}
           ref={sliderRef}
         />
-        <Divider sx={{ mt: { xs: '218px', sm: '30px' } }} />
+        <Divider sx={{ mt: { xs: '203px', sm: '14px' } }} />
         <Button
           sx={{
             width: { xs: '100%', sm: 343 },
-            mt: { xs: '80px', sm: '335px' },
+            mt: { xs: '50px', sm: '305px' },
           }}
         >
           search

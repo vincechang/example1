@@ -34,7 +34,7 @@ const defaultMarks = [
 ];
 
 function getStep(width) {
-  return width >= 670 ? 134 : 57;
+  return width >= 670 ? 136 : 59;
 }
 
 function rescaleValue(oldValue, oldWidth, newWidth) {
@@ -100,6 +100,14 @@ function Slider({
       step={null}
       marks={marks}
       onChange={handleChange}
+      sx={{
+        '& .MuiSlider-markLabel': {
+          fontSize: { xs: 14, sm: 16 },
+          fontWeight: { xs: 500, sm: 400 },
+          lineHeight: { xs: '24px', sm: '21px' },
+          letterSpacing: { xs: '0.25px', sm: '0.15px' },
+        },
+      }}
     />
   );
 }
