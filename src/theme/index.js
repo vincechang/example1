@@ -38,10 +38,10 @@ const theme = createTheme({
             backgroundColor: COLOR.WHITE,
             border: `1px solid ${COLOR.WHITE}`,
             textTransform: 'uppercase',
-            fontSize: 12,
+            fontSize: 14,
             fontWeight: 700,
             lineHeight: 1,
-            padding: '13px 16px',
+            padding: '12px 16px',
             minWidth: 0,
             '&:hover': {
               color: COLOR.WHITE,
