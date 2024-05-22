@@ -1,24 +1,22 @@
 import {
-  BrowserRouter, Navigate, Route, Routes,
+  createBrowserRouter, Navigate,
 } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
-import TagsPage from '../pages/TagsPage';
-import ResultPage from '../pages/ResultPage';
-import NavLayout from '../pages/NavLayout';
+import NavLayout from 'pages/NavLayout';
+import HomePage from 'pages/HomePage';
+import ResultPage from 'pages/ResultPage';
+import TagsPage from 'pages/TagsPage';
 
-function RootRoute() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<NavLayout />}>
-          <Route index element={<Navigate to="home" />} />
-          <Route path="home" element={<HomePage />} />
-          <Route path="home/result/:query" element={<ResultPage />} />
-          <Route path="tags" element={<TagsPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
-}
+const rootRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <NavLayout />,
+    children: [
+      { index: true, element: <Navigate to="home" /> },
+      { path: 'home', element: <HomePage /> },
+      { path: 'home/result/:query', element: <ResultPage /> },
+      { path: 'tags', element: <TagsPage /> },
+    ],
+  },
+]);
 
-export default RootRoute;
+export default rootRouter;
