@@ -5,6 +5,7 @@ import NavBottom from 'components/NavBottom';
 import Slider from 'components/Slider';
 import { COLOR } from 'theme/variables.ts';
 import { useRef, useState } from 'react';
+import { LogoIcon } from 'components/Icons';
 
 function HomePage() {
   const [value, setValue] = useState(0);
@@ -16,8 +17,12 @@ function HomePage() {
         sx={{
           backgroundColor: COLOR.BLACK_18,
           display: { xs: 'flex', sm: 'none' },
+          flexDirection: 'row',
         }}
       >
+        <Box height={70} width={77} display="flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+          <LogoIcon />
+        </Box>
         <Toolbar />
       </AppBar>
       <Box component="main" sx={{ flexGrow: 1, p: { xs: '0px 20px', sm: '0px 130px' } }}>

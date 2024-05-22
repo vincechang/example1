@@ -131,7 +131,11 @@ const theme = createTheme({
     MuiSlider: {
       styleOverrides: {
         root: {
+          padding: '29px 0',
           minWidth: 285,
+          '@media (pointer: coarse)': {
+            padding: '29px 0',
+          },
           '& .MuiSlider-thumb': {
             width: 26,
             height: 26,
@@ -150,6 +154,9 @@ const theme = createTheme({
           },
           '& .MuiSlider-mark': {
             display: 'none',
+          },
+          '& .MuiSlider-markLabel': {
+            top: 50,
           },
         },
       },
