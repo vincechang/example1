@@ -138,6 +138,7 @@ const theme = createTheme({
             background: 'linear-gradient(270deg, #FFD25F 0.13%, #FF5C01 100%)',
           },
           '& .MuiSlider-rail': {
+            height: 8,
             opacity: 0.3,
             backgroundColor: COLOR.WHITE,
           },
