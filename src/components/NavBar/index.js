@@ -1,24 +1,44 @@
 import {
-  Drawer, List, ListItem, ListItemButton, ListItemIcon,
+  Box,
+  Drawer, List, ListItem, ListItemButton, ListItemIcon, Typography,
 } from '@mui/material';
 import { Link, useMatch } from 'react-router-dom';
-import { HomeIcon, TagsIcon } from 'components/Icons';
+import { HomeIcon, LogoIcon, TagsIcon } from 'components/Icons';
 import { COLOR } from 'theme/variables.ts';
 
-const NavConfig = [
-  { path: '/home', icon: <HomeIcon /> },
-  { path: '/tags', icon: <TagsIcon /> },
+const NavItems = [
+  { path: '/home', icon: HomeIcon, label: 'Home' },
+  { path: '/tags', icon: TagsIcon, label: 'Tags' },
 ];
 
 // eslint-disable-next-line react/prop-types
-function NavItem({ path, icon }) {
+function NavItem({ path, icon, label }) {
   const isSelected = Boolean(useMatch(`${path}/*`));
   return (
-    <ListItem key={path} disablePadding>
-      <ListItemButton selected={isSelected} component={Link} to={path}>
+    <ListItem
+      key={path}
+      disablePadding
+      sx={{
+        mb: '6px',
+        '&:hover .MuiTypography-root': {
+          color: isSelected ? COLOR.WHITE : COLOR.GREY_8A,
+          visibility: 'visible',
+        },
+      }}
+    >
+      <ListItemButton component={Link} to={path} display="flex" sx={{ flexDirection: 'column' }}>
         <ListItemIcon>
-          {icon}
+          {icon({ isSelected })}
         </ListItemIcon>
+        <Typography
+          sx={{
+            fontSize: 12,
+            letterSpacing: 0.4,
+            visibility: isSelected ? 'visible' : 'hidden',
+          }}
+        >
+          {label}
+        </Typography>
       </ListItemButton>
     </ListItem>
   );
@@ -39,10 +59,13 @@ function NavBar({ width }) {
         },
       }}
     >
-      <List>
+      <Box height={88} display="flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+        <LogoIcon />
+      </Box>
+      <List disablePadding>
         {
-          NavConfig.map(({ path, icon }) => (
-            <NavItem path={path} icon={icon} />
+          NavItems.map(({ path, icon, label }) => (
+            <NavItem key={path} path={path} icon={icon} label={label} />
           ))
         }
       </List>
