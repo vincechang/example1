@@ -6,11 +6,13 @@ import Slider from 'components/Slider';
 import { COLOR } from 'theme/variables.ts';
 import { useRef, useState } from 'react';
 import { LogoIcon } from 'components/Icons';
+import FriendTab from 'components/FriendTab';
 
 function HomePage() {
   const [value, setValue] = useState(0);
   const [width, setWidth] = useState(0);
   const sliderRef = useRef(null);
+
   return (
     <Box display="flex" sx={{ flexGrow: 1 }}>
       <AppBar
@@ -60,6 +62,7 @@ function HomePage() {
           search
         </Button>
       </Box>
+      <FriendTab />
       <Box
         sx={{
           position: 'fixed',
