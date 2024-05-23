@@ -161,6 +161,32 @@ const theme = createTheme({
         },
       },
     },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          minHeight: 33,
+          '& .MuiTabs-flexContainer': {
+            minHeight: 0,
+          },
+          '& .MuiTab-root': {
+            minHeight: 0,
+          },
+          button: {
+            height: 46,
+            fontSize: 16,
+            letterSpacing: 0.15,
+            textTransform: 'none',
+            color: COLOR.GREY_92,
+            '&.MuiTab-root.Mui-selected': {
+              color: COLOR.WHITE,
+            },
+          },
+        },
+        indicator: {
+          backgroundColor: COLOR.WHITE,
+        },
+      },
+    },
     MuiToolbar: {
       styleOverrides: {
         root: {
