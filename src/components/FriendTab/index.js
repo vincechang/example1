@@ -23,10 +23,10 @@ function FriendTab() {
           <Tab label="Following" />
         </Tabs>
       </Box>
-      <FriendPanel value={value} index={0}>
+      <FriendPanel value={value} index={0} friends={followers}>
         Followers
       </FriendPanel>
-      <FriendPanel value={value} index={1}>
+      <FriendPanel value={value} index={1} friends={following}>
         Following
       </FriendPanel>
     </Box>
