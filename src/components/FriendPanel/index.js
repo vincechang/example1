@@ -14,7 +14,8 @@ function FriendPanel({
     <Box
       role="tabpanel"
       hidden={value !== index}
-      sx={{ px: '16px', py: '32px' }}
+      sx={{ px: '16px', py: '32px', overflowY: 'scroll' }}
+      height="calc(100vh - 66px)"
     >
         <List>
           {data.map(({
