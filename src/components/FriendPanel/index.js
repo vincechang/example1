@@ -16,7 +16,6 @@ function FriendPanel({
       hidden={value !== index}
       sx={{ px: '16px', py: '32px' }}
     >
-      {value === index && (
         <List>
           {data.map(({
             id, name, username, avater, isFollowing,
@@ -30,7 +29,6 @@ function FriendPanel({
             </ListItem>
           ))}
         </List>
-      )}
     </Box>
   );
 }

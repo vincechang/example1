@@ -1,11 +1,12 @@
 import { Box, Tab, Tabs } from '@mui/material';
-import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Suspense, useState } from 'react';
+import { Await, useLoaderData } from 'react-router-dom';
 import FriendPanel from 'components/FriendPanel';
+import { getFollowersApi, getFollowingApi } from 'api';
 
 function FriendTab() {
   const [value, setValue] = useState(0);
-  const { followers, following } = useLoaderData();
+  const { followersFetcher, followingFetcher } = useLoaderData();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -23,12 +24,28 @@ function FriendTab() {
           <Tab label="Following" />
         </Tabs>
       </Box>
-      <FriendPanel value={value} index={0} friends={followers}>
-        Followers
-      </FriendPanel>
-      <FriendPanel value={value} index={1} friends={following}>
-        Following
-      </FriendPanel>
+      {value === 0 && (
+      <Suspense fallback={<p>loading</p>}>
+        <Await resolve={followersFetcher}>
+          {(followers) => (
+            <FriendPanel value={value} index={0} friends={followers} getApi={getFollowersApi}>
+              Followers
+            </FriendPanel>
+          )}
+        </Await>
+      </Suspense>
+      )}
+      {value === 1 && (
+      <Suspense fallback={<p>loading</p>}>
+        <Await resolve={followingFetcher}>
+          {(following) => (
+            <FriendPanel value={value} index={1} friends={following} getApi={getFollowingApi}>
+              Following
+            </FriendPanel>
+          )}
+        </Await>
+      </Suspense>
+      )}
     </Box>
   );
 }

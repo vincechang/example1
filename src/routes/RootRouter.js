@@ -17,9 +17,9 @@ const rootRouter = createBrowserRouter([
         path: 'home',
         element: <HomePage />,
         loader: async () => {
-          const followers = await fetcher('https://avl-frontend-exam.herokuapp.com/api/users/all?page=1&pageSize=10');
-          const following = await fetcher('https://avl-frontend-exam.herokuapp.com/api/users/friends?page=1&pageSize=10');
-          return defer({ followers, following });
+          const followersFetcher = fetcher(getFollowersApi());
+          const followingFetcher = fetcher(getFollowingApi());
+          return defer({ followersFetcher, followingFetcher });
         },
       },
       { path: 'home/result/:query', element: <ResultPage /> },
