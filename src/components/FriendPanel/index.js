@@ -40,7 +40,14 @@ function FriendPanel({
             <ListItemAvatar>
               <Avatar alt={username} src={avater} variant="rounded" sx={{ borderRadius: '5px', border: `1px solid ${COLOR.GREY_F8}` }} />
             </ListItemAvatar>
-            <ListItemText primary={name} secondary={username} />
+            <ListItemText
+              primary={name}
+              secondary={username}
+              sx={{
+                overflow: 'hidden',
+                whiteSpace: 'nowrap',
+              }}
+            />
             <Button variant={isFollowing ? 'outlined' : 'contained'}>{isFollowing ? 'Following' : 'Follow'}</Button>
           </ListItem>
         ))}
