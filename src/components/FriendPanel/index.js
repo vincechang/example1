@@ -6,6 +6,7 @@ import useSWRInfinite from 'swr/infinite';
 import { COLOR } from 'theme/variables.ts';
 import InfiniteScroll from 'components/InfiniteScroll';
 import fetcher from 'api';
+import { FriendSkeleton } from 'components/Skeleton';
 
 function FriendPanel({
   getApi, friends: {
@@ -43,7 +44,9 @@ function FriendPanel({
             <Button variant={isFollowing ? 'outlined' : 'contained'}>{isFollowing ? 'Following' : 'Follow'}</Button>
           </ListItem>
         ))}
-        {isValidating && (<div>Loading</div>)}
+        {isValidating && [...Array(pageSize)].map(() => (
+          <FriendSkeleton />
+        ))}
       </InfiniteScroll>
     </List>
   );
