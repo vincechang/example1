@@ -1,13 +1,11 @@
 import {
   createBrowserRouter, defer, Navigate,
 } from 'react-router-dom';
-import axios from 'axios';
 import NavLayout from 'pages/NavLayout';
 import HomePage from 'pages/HomePage';
 import ResultPage from 'pages/ResultPage';
 import TagsPage from 'pages/TagsPage';
-
-const fetcher = (url) => axios.get(url).then((res) => res.data);
+import fetcher, { getFollowersApi, getFollowingApi } from 'api';
 
 const rootRouter = createBrowserRouter([
   {
