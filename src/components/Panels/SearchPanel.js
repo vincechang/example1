@@ -11,7 +11,9 @@ import { LogoIcon } from 'components/Icons';
 
 function SearchPanel() {
   const sliderRef = useRef(null);
-  const { pageSize, setKeyword, setPageSize } = useStore();
+  const {
+    keyword, pageSize, setKeyword, setPageSize,
+  } = useStore();
   const sliderState = useSlider(sliderRef, setPageSize);
 
   const handleInputChange = (e) => {
@@ -49,6 +51,7 @@ function SearchPanel() {
         />
         <Divider sx={{ mt: { xs: '203px', sm: '14px' } }} />
         <Button
+          disabled={keyword === ''}
           component={Link}
           to="result"
           sx={{

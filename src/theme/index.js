@@ -47,6 +47,11 @@ const theme = createTheme({
               color: COLOR.WHITE,
               backgroundColor: COLOR.BLACK_12,
             },
+            '&.Mui-disabled': {
+              color: COLOR.GREY_6A,
+              backgroundColor: COLOR.GREY_8A,
+              borderColor: COLOR.GREY_8A,
+            },
           },
           ...(ownerState.variant === 'contained' && {
             fontFamily: 'Open Sans',
