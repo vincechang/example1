@@ -6,8 +6,7 @@ import Slider from 'components/Slider';
 import { Link } from 'react-router-dom';
 import useStore from 'store';
 import { useSlider } from 'hooks';
-import AppBar from 'components/AppBar';
-import { LogoIcon } from 'components/Icons';
+import LogoAppBar from 'components/AppBar/LogoAppBar';
 
 function SearchPanel() {
   const sliderRef = useRef(null);
@@ -28,11 +27,7 @@ function SearchPanel() {
 
   return (
     <>
-      <AppBar>
-        <Box height={70} width={77} display="flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
-          <LogoIcon />
-        </Box>
-      </AppBar>
+      <LogoAppBar />
       <Box component="main" sx={{ flexGrow: 1, p: { xs: '0px 20px', sm: '0px 130px' } }}>
         <Toolbar sx={{ display: { sm: 'none' } }} />
         <Typography variant="h5" sx={{ m: { xs: '0 0 16px', sm: '54px 0 20px' } }}>Search</Typography>

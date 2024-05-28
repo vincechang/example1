@@ -1,7 +1,10 @@
 import { Box, Button, Toolbar } from '@mui/material';
+import BackAppBar from 'components/AppBar/BackAppBar';
 
 function ResultPanel() {
   return (
+    <>
+      <BackAppBar />
     <Box component="main" sx={{ flexGrow: 1, p: { xs: '0px 20px', sm: '0px 130px' } }}>
       <Toolbar sx={{ display: { sm: 'none' } }} />
       <Button
@@ -13,6 +16,7 @@ function ResultPanel() {
         more
       </Button>
     </Box>
+    </>
   );
 }
 

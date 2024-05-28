@@ -1,21 +1,4 @@
-import { AppBar as MuiAppBar, Toolbar } from '@mui/material';
-import { COLOR } from 'theme/variables.ts';
+import IconAppBar from './LogoAppBar';
+import BackAppBar from './BackAppBar';
 
-// eslint-disable-next-line react/prop-types
-function AppBar({ children }) {
-  return (
-    <MuiAppBar
-      sx={{
-        backgroundColor: COLOR.BLACK_18,
-        display: { xs: 'flex', sm: 'none' },
-        flexDirection: 'row',
-      }}
-    >
-      {children}
-      <Toolbar />
-    </MuiAppBar>
-
-  );
-}
-
-export default AppBar;
+export { IconAppBar, BackAppBar };
