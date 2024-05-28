@@ -44,10 +44,12 @@ function rescaleValue(oldValue, oldWidth, newWidth) {
   return mark > 4 ? newWidth : newStep * mark;
 }
 
-function Slider({
 // eslint-disable-next-line react/prop-types
-  value, width, setValue, setWidth,
-}, ref) {
+function Slider({ sliderState }, ref) {
+  const {
+    // eslint-disable-next-line react/prop-types
+    value, setValue, width, setWidth,
+  } = sliderState;
   const resizeRef = useRef(null);
 
   useLayoutEffect(() => {

@@ -1,20 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import {
   Box, Button, Divider, TextField, Toolbar, Typography,
 } from '@mui/material';
 import Slider from 'components/Slider';
 import { Link } from 'react-router-dom';
 import useStore from 'store';
+import { useSlider } from 'hooks';
 
 function SearchPanel() {
-  const [value, setValue] = useState(0);
-  const [width, setWidth] = useState(0);
   const sliderRef = useRef(null);
   const { pageSize, setKeyword, setPageSize } = useStore();
-
-  useEffect(() => {
-    setPageSize(sliderRef.current?.getNum(value, width));
-  }, [setPageSize, value, width]);
+  const sliderState = useSlider(sliderRef, setPageSize);
 
   const handleInputChange = (e) => {
     setKeyword(e.target.value);
@@ -40,10 +36,7 @@ function SearchPanel() {
         results
       </Typography>
       <Slider
-        value={value}
-        setValue={setValue}
-        width={width}
-        setWidth={setWidth}
+        sliderState={sliderState}
         ref={sliderRef}
       />
       <Divider sx={{ mt: { xs: '203px', sm: '14px' } }} />
