@@ -1,4 +1,4 @@
-import useOnScreen from 'hooks/useOnScreen';
+import useOnScreen from './useOnScreen';
+import useSlider from './useSlider';
 
-// eslint-disable-next-line import/prefer-default-export
-export { useOnScreen };
+export { useOnScreen, useSlider };
