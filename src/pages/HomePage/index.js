@@ -1,9 +1,5 @@
-import {
-  AppBar, Box, Toolbar,
-} from '@mui/material';
+import { Box } from '@mui/material';
 import NavBottom from 'components/NavBottom';
-import { COLOR } from 'theme/variables.ts';
-import { LogoIcon } from 'components/Icons';
 import FriendTab from 'components/FriendTab';
 import { Outlet } from 'react-router-dom';
 import useStore from 'store';
@@ -18,18 +14,6 @@ function HomePage() {
   }, []); // reset on mount
   return (
     <Box display="flex" sx={{ flexGrow: 1 }}>
-      <AppBar
-        sx={{
-          backgroundColor: COLOR.BLACK_18,
-          display: { xs: 'flex', sm: 'none' },
-          flexDirection: 'row',
-        }}
-      >
-        <Box height={70} width={77} display="flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
-          <LogoIcon />
-        </Box>
-        <Toolbar />
-      </AppBar>
       <Outlet />
       <FriendTab />
       <Box
