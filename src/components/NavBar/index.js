@@ -1,15 +1,10 @@
 import {
-  Box,
-  Drawer, List, ListItem, ListItemButton, ListItemIcon, Typography,
+  Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, Typography,
 } from '@mui/material';
 import { Link, useMatch } from 'react-router-dom';
-import { HomeIcon, LogoIcon, TagsIcon } from 'components/Icons';
+import { LogoIcon } from 'components/Icons';
 import { COLOR } from 'theme/variables.ts';
-
-const NavItems = [
-  { path: '/home', icon: HomeIcon, label: 'Home' },
-  { path: '/tags', icon: TagsIcon, label: 'Tags' },
-];
+import NavItems from 'configs/navItems';
 
 // eslint-disable-next-line react/prop-types
 function NavItem({ path, icon, label }) {
