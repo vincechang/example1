@@ -3,8 +3,8 @@ import {
 } from 'react-router-dom';
 import NavLayout from 'pages/NavLayout';
 import HomePage from 'pages/HomePage';
-import ResultPage from 'pages/ResultPage';
 import TagsPage from 'pages/TagsPage';
+import { ResultPanel, SearchPanel } from 'components/Panels';
 import fetcher, { getFollowersApi, getFollowingApi } from 'api';
 
 const rootRouter = createBrowserRouter([
@@ -21,8 +21,11 @@ const rootRouter = createBrowserRouter([
           const followingFetcher = fetcher(getFollowingApi());
           return defer({ followersFetcher, followingFetcher });
         },
+        children: [
+          { index: true, element: <SearchPanel /> },
+          { path: 'result', element: <ResultPanel /> },
+        ],
       },
-      { path: 'home/result/:query', element: <ResultPage /> },
       { path: 'tags', element: <TagsPage /> },
     ],
   },
