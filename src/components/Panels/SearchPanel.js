@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import {
   Box, Button, Divider, TextField, Toolbar, Typography,
 } from '@mui/material';
@@ -15,6 +15,12 @@ function SearchPanel() {
     keyword, pageSize, setKeyword, setPageSize,
   } = useStore();
   const sliderState = useSlider(sliderRef, setPageSize);
+
+  useEffect(() => {
+    setKeyword('');
+    setPageSize(15);
+    // eslint-disable-next-line
+  }, []); // reset on mount
 
   const handleInputChange = (e) => {
     setKeyword(e.target.value);
