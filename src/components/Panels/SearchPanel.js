@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import useStore from 'store';
 import { useSlider } from 'hooks';
 import LogoAppBar from 'components/AppBar/LogoAppBar';
+import NavBottom from 'components/NavBottom';
 
 function SearchPanel() {
   const sliderRef = useRef(null);
@@ -62,6 +63,16 @@ function SearchPanel() {
         >
           search
         </Button>
+        <Box
+          sx={{
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+          }}
+        >
+          <NavBottom />
+        </Box>
       </Box>
     </>
 
