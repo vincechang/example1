@@ -1,11 +1,11 @@
 import {
-  createBrowserRouter, defer, Navigate,
+  createBrowserRouter, Navigate,
 } from 'react-router-dom';
 import NavLayout from 'pages/NavLayout';
 import HomePage from 'pages/HomePage';
 import TagsPage from 'pages/TagsPage';
 import { ResultPanel, SearchPanel } from 'components/Panels';
-import fetcher, { getFollowersApi, getFollowingApi } from 'api';
+import { homeLoader, resultLoader } from 'api';
 
 const rootRouter = createBrowserRouter([
   {
@@ -16,14 +16,10 @@ const rootRouter = createBrowserRouter([
       {
         path: 'home',
         element: <HomePage />,
-        loader: async () => {
-          const followersFetcher = fetcher(getFollowersApi());
-          const followingFetcher = fetcher(getFollowingApi());
-          return defer({ followersFetcher, followingFetcher });
-        },
+        loader: homeLoader,
         children: [
           { index: true, element: <SearchPanel /> },
-          { path: 'result', element: <ResultPanel /> },
+          { path: 'result', element: <ResultPanel />, loader: resultLoader },
         ],
       },
       { path: 'tags', element: <TagsPage /> },
