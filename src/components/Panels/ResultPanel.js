@@ -1,9 +1,17 @@
-import { Box, Toolbar, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
+import {
+  Box, Toolbar, Typography,
+} from '@mui/material';
+import {
+  Await, Link, useLoaderData,
+} from 'react-router-dom';
+import { Suspense } from 'react';
 import BackAppBar from 'components/AppBar/BackAppBar';
+import { ManyResultsSkeleton } from 'components/Skeleton';
 import { BackIcon } from 'components/Icons';
 
 function ResultPanel() {
+  const { searchFetcher } = useLoaderData();
+
   return (
     <>
       <BackAppBar />
@@ -37,6 +45,11 @@ function ResultPanel() {
           </Box>
           <Typography sx={{ typography: { xs: 'h5', sm: 'h4' } }}>Results</Typography>
         </Box>
+        <Suspense fallback={<ManyResultsSkeleton />}>
+          <Await resolve={searchFetcher}>
+            {() => (<div>results</div>)}
+          </Await>
+        </Suspense>
       </Box>
     </>
   );
