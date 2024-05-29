@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { defer } from 'react-router-dom';
+import { defer, redirect } from 'react-router-dom';
 import { store } from 'store';
 
 export const getFollowersApi = (page = 1, pageSize = 10) => `https://avl-frontend-exam.herokuapp.com/api/users/all?page=${page}&pageSize=${pageSize}`;
@@ -24,6 +24,7 @@ export const homeLoader = async () => {
 
 export const resultLoader = async () => {
   const { keyword, pageSize } = store.getState();
+  if (keyword === '') { return redirect('/home'); }
   const searchFetcher = fetcher(getSearchApi(keyword, 1, pageSize));
   return defer({ searchFetcher });
 };
