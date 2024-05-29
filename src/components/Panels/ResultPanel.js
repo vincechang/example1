@@ -1,5 +1,5 @@
 import {
-  Box, Toolbar, Typography,
+  Box, Button, Card, CardMedia, Toolbar, Typography,
 } from '@mui/material';
 import {
   Await, Link, useLoaderData,
@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import BackAppBar from 'components/AppBar/BackAppBar';
 import { ManyResultsSkeleton } from 'components/Skeleton';
 import { BackIcon } from 'components/Icons';
+import { COLOR } from 'theme/variables.ts';
 
 function ResultPanel() {
   const { searchFetcher } = useLoaderData();
@@ -47,7 +48,55 @@ function ResultPanel() {
         </Box>
         <Suspense fallback={<ManyResultsSkeleton />}>
           <Await resolve={searchFetcher}>
-            {() => (<div>results</div>)}
+            {(res) => {
+              const { data } = res;
+              return (
+                <>
+                  <Box
+                    sx={{
+                      mt: '24px',
+                      display: 'flex',
+                      flexDirection: 'row',
+                      flexWrap: 'wrap',
+                      justifyContent: 'space-between',
+                      rowGap: '31px',
+                    }}
+                  >
+                    {data.map(({
+                      avater, id, name, username,
+                    }) => (
+                      <Card
+                        key={id}
+                        sx={{
+                          width: { xs: 335, sm: 219 }, height: { xs: 282, sm: 197 }, background: 'transparent', boxShadow: 'none', borderRadius: 0,
+                        }}
+                      >
+                        <CardMedia
+                          sx={{
+                            height: { xs: 222, sm: 146 },
+                            mb: '12px',
+                            backgroundColor: COLOR.GREY_6A,
+                          }}
+                          image={avater}
+                        />
+                        <Typography sx={{ fontSize: '14.9px' }}>{name}</Typography>
+                        <Typography sx={{ fontSize: '11.17px', color: COLOR.GREY_B2 }}>
+                          {`by ${username}`}
+                        </Typography>
+                      </Card>
+                    ))}
+                  </Box>
+                  <Button
+                    sx={{
+                      width: { xs: '100%', sm: 343 },
+                      my: { xs: '50px', sm: '39px' },
+                    }}
+                  >
+                    more
+                  </Button>
+                </>
+              );
+            }}
           </Await>
         </Suspense>
       </Box>
