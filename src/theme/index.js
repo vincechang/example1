@@ -20,6 +20,9 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'Ubuntu',
+    h4: {
+      fontSize: 30,
+    },
   },
   components: {
     MuiAppBar: {
