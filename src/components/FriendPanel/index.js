@@ -48,7 +48,7 @@ function FriendPanel({
                 whiteSpace: 'nowrap',
               }}
             />
-            <Button variant={isFollowing ? 'outlined' : 'contained'}>{isFollowing ? 'Following' : 'Follow'}</Button>
+            <Button variant={isFollowing ? 'contained' : 'outlined'}>{isFollowing ? 'Following' : 'Follow'}</Button>
           </ListItem>
         ))}
         {isValidating && [...Array(pageSize)].map(() => (

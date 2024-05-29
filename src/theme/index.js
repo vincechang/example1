@@ -56,7 +56,7 @@ const theme = createTheme({
               borderColor: COLOR.GREY_8A,
             },
           },
-          ...(ownerState.variant === 'contained' && {
+          ...(ownerState.variant === 'outlined' && {
             fontFamily: 'Open Sans',
             color: COLOR.WHITE,
             backgroundColor: COLOR.BLACK_12,
@@ -72,7 +72,7 @@ const theme = createTheme({
               backgroundColor: COLOR.WHITE,
             },
           }),
-          ...(ownerState.variant === 'outlined' && {
+          ...(ownerState.variant === 'contained' && {
             fontFamily: 'Open Sans',
             color: COLOR.BLACK_12,
             backgroundColor: COLOR.WHITE,
