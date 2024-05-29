@@ -16,6 +16,7 @@ function FriendTab() {
   return (
     <Box
       width={375}
+      minWidth={375}
       display={{ xs: 'none', sm: 'none', xl: 'block' }}
       pt="20px"
     >

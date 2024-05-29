@@ -17,7 +17,17 @@ function InfiniteScroll({
 
   return (
     <Box
-      sx={{ p: '16px 32px 0 32px', overflowY: 'auto' }}
+      sx={{
+        p: '32px 16px 0 16px',
+        overflowY: 'auto',
+        scrollbarWidth: 'none',
+        '&::-webkit-scrollbar': {
+          display: 'none',
+        },
+        '&-ms-overflow-style:': {
+          display: 'none',
+        },
+      }}
       height="calc(100vh - 66px)"
     >
       {children}
