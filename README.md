@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# Responsive Web Design (RWD) Frontend Webpage 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div>
+   <img src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" width="35">
+   <img src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" width="35">
+   <img src="https://user-images.githubusercontent.com/25181517/189716630-fe6c084c-6c66-43af-aa49-64c8aea4a5c2.png" width="35">
+   <img src="https://swr.vercel.app/favicon/apple-touch-icon.png" width="35">
+   <img src="https://reactrouter.com/favicon-light.png" width="35">
+   <img src="https://docs.pmnd.rs/zustand.ico" width="35">
+   <img src="https://usehooks-ts.com/apple-touch-icon.png" width="35">
+</div>
 
-## Available Scripts
+## 📖 Overview
 
-In the project directory, you can run:
+This project is a responsive web design (RWD) frontend webpage that provides an interactive and user-friendly interface for searching and displaying results. It features a home page for keyword input and page size selection, a results page for displaying search results, and a friend panel for viewing followers and following lists. The application supports infinite scrolling and includes a navigation bar for easy navigation between different sections of the site.
 
-### `npm start`
+## ⚙️ Technical Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 18
+- Material UI v5
+- React Router v6
+- SWR
+- Zustand
+- usehooks-ts
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+### Home Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Keyword Search Input:**
 
-### `npm run build`
+    - Users can enter a keyword in a text input field.
+    - The search button is enabled only when the text input is non-empty; it is disabled when the input is empty.
+2. **Page Size Selection:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - Users can use a slider to select the number of results displayed per page.
+3. **Search Button:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    - Upon clicking the search button, users are directed to the results page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Results Page
 
-### `npm run eject`
+1. **Search Results Display:**
+    - Results are displayed in a card format.
+    - Each card includes an image, title, and username.
+    - If the keyword is empty, redirect to the home page.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Friend Panel
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Responsive Display:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    - The friend panel is displayed on both the home page and results page when the display width is greater than 1440px.
+2. **Tabs for Followers and Following:**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    - The friend panel includes two tabs: Followers and Following.
+    - Each tab displays the corresponding list of friends.
+3. **Infinite Scrolling for Friends List:**
 
-## Learn More
+    - The friends list supports infinite scrolling, automatically loading more friends as the user scrolls to the bottom of the list.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Navigation Bar
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Allows users to navigate between the home page and tags page.
 
-### Code Splitting
+## 🚧 Pending Features / Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **TypeScript Integration:**
 
-### Analyzing the Bundle Size
+    - Refactor the codebase to use TypeScript for better type safety and development experience.
+2. **Tags Page Implementation:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    - Implement the tags page and its subcomponents.
+    - Integrate with tags API to support loading more tags and infinite scrolling, and provide a skeleton loader.
+3. **Results Page Load More Functionality:**
 
-### Making a Progressive Web App
+    - Implement a load more button or infinite scrolling using `useSWRInfinite` for the results page, with a skeleton loader.
+4. **Page Size Configuration:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    - Allow the `ManyComponentsSkeleton` to accept `pageSize` as a parameter to configure the number of items displayed.
+5. **Result Card Component Extraction:**
 
-### Advanced Configuration
+    - Refactor the results display to extract a reusable result card component.
+6. **Mock APIs:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    - Implement mock APIs to facilitate development and testing.
+7. **Testing:**
 
-### Deployment
+    - Provide comprehensive testing for the application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🙈 Issues to be clarified
 
-### `npm run build` fails to minify
+1. **Slider Step Inconsistency:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    - The length of each step in the slider is not consistent.
+2. **Home Page Results Count:**
+
+    - The number of results displayed on the home page does not match the number selected on the slider.
+3. **Result Page Row Gap:**
+
+    - The row gap between results on the result page is inconsistent.
+
+## 🚀 Usage
+
+1. On the home page, enter a keyword in the search input field.
+2. Use the slider to select the desired page size.
+3. Click the search button to view results on the results page.
+4. Explore the friend panel if your display width is greater than 1440px.
+5. Use the navigation bar to switch between the home page and tags page (when implemented).
+
+## 📝 License
+
+This project is [MIT](https://github.com/juliencrn/usehooks-ts/blob/master/LICENSE) licensed.
